@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumi Chat - A cozy place for your chats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🧸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="rose">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="bear" viewBox="0 0 64 64">
+  <circle cx="13" cy="15" r="9" fill="#b9784a"/><circle cx="13" cy="15" r="5" fill="#f6cfa8"/>
+  <circle cx="51" cy="15" r="9" fill="#b9784a"/><circle cx="51" cy="15" r="5" fill="#f6cfa8"/>
+  <circle cx="32" cy="32" r="24" fill="#d99a68"/>
+  <ellipse cx="32" cy="40" rx="12" ry="9.5" fill="#f6cfa8"/>
+  <circle cx="23" cy="28" r="3.2" fill="#2b1a12"/><circle cx="41" cy="28" r="3.2" fill="#2b1a12"/>
+  <circle cx="24" cy="27" r="1" fill="#fff"/><circle cx="42" cy="27" r="1" fill="#fff"/>
+  <ellipse cx="32" cy="36" rx="4" ry="3" fill="#2b1a12"/>
+  <path d="M32 39v3M32 42q-4 3-7 0M32 42q4 3 7 0" stroke="#2b1a12" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <circle cx="16.500" cy="36" r="3.400" fill="#ff8fa3" opacity=".55"/><circle cx="47.500" cy="36" r="3.400" fill="#ff8fa3" opacity=".55"/>
+  <path d="M32 58L19 52V63Z" fill="#e5588a"/><path d="M32 58L45 52V63Z" fill="#e5588a"/><circle cx="32" cy="58" r="3.200" fill="#c93a68"/>
+</symbol></svg>
+
+<section id="auth">
+  <button class="theme-btn float" data-action="theme" title="Change theme">🎨 <span class="tname">Rose</span></button>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="authwrap">
+    <div class="hero">
+      <div class="logo big"><svg class="bear"><use href="#bear"/></svg></div>
+      <h2>Lumi-Chats</h2>
+      <p>Your people, always one tap away.</p>
+      <div class="bub ba">Hey! Are you free tonight? 👋</div>
+      <div class="bub bb">Yes! Call me 📞 <span>✓✓</span></div>
+      <div class="bub bc"><b>Ayesha</b> posted a status ✨</div>
+    </div>
+    <div class="card">
+      <div class="brand"><span class="logo"><svg class="bear"><use href="#bear"/></svg></span><h1>WelCome</h1></div>
+      <p class="tag">A cozy place for your chats.</p>
+      <div class="tabs"><button class="on" data-tab="login">Log in</button><button data-tab="signup">Sign up</button></div>
+      <form id="authForm" autocomplete="off">
+        <label class="pickdp hide" id="fPhoto" title="Add a profile photo"><span class="pdp" id="pdp">📷</span><span>Add profile photo <small>(optional)</small></span><input type="file" accept="image/*" id="aPhoto" class="hide"></label>
+        <div class="field hide" id="fName"><i>👤</i><input id="aName" placeholder="Your name"></div>
+        <div class="field"><i>✉️</i><input id="aEmail" type="email" placeholder="Email"></div>
+        <div class="field"><i>🔒</i><input id="aPass" type="password" placeholder="Password (min 6 characters)"><button type="button" id="eye" title="Show password">👁</button></div>
+        <p id="aErr" class="err"></p>
+        <button class="primary" id="aGo">Log in</button>
+      </form>
+      <div class="or"><span>or</span></div>
+      <button class="google" id="gBtn"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Continue with Google</button>
+    </div>
+  </div>
+</section>
+
+<section id="app" class="hide">
+  <aside id="side">
+    <header class="me">
+      <div class="av" id="meAv" data-action="myprofile" title="My profile"></div>
+      <div class="grow"><b id="meName"></b><small id="meStatus" data-action="myprofile"></small></div>
+      <button class="ic" data-action="settings" title="Settings">⚙️</button>
+      <button class="ic" data-action="theme" title="Change theme">🎨</button>
+      <button class="ic" data-action="logout" title="Sign out">🚪</button>
+    </header>
+    <div class="wbar">Welcome to Lumi Chat 👋</div>
+    <div class="tabs2"><button class="on" data-tab2="friends">Chats</button><button data-tab2="status">Status</button><button data-tab2="requests">Requests <i id="reqBadge" class="badge hide"></i></button></div>
+    <div class="searchbox"><input id="search" placeholder="Search friends"></div>
+    <div class="chips2" id="chips2"><button class="on" data-f="all">All</button><button data-f="unread">Unread</button><button data-f="groups">Groups</button></div>
+    <div class="list" id="list"></div>
+    <button class="fab" data-action="fab" title="New">＋</button>
+  </aside>
+
+  <main id="chat">
+    <div class="empty" id="empty"><div class="logo big"><svg class="bear"><use href="#bear"/></svg></div><h2>Welcome to Lumi Chat 👋</h2><p>Pick a friend or a group to start chatting.</p><div class="feat"><span>💬 Chats</span><span>🎤 Voice</span><span>📷 Photos</span><span>📞 Calls</span><span>✨ Status</span></div></div>
+    <div class="pane hide" id="pane">
+      <header class="head">
+        <button class="ic back" data-action="back">‹</button>
+        <div class="av" id="cAv" data-action="profile"></div>
+        <div class="grow" data-action="profile"><b id="cName"></b><small id="cSub"></small></div>
+        <button class="ic" data-action="call" title="Voice call">📞</button>
+        <button class="ic" data-action="more" title="More">⋮</button>
+      </header>
+      <div class="sbar hide" id="sbar"><input id="sIn" placeholder="Search in this chat"><button class="ic" data-action="closeSearch">✕</button></div>
+      <div class="msgs" id="msgs"></div>
+      <button id="toBottom" class="tobottom hide" data-action="bottom" title="Latest messages">⌄</button>
+      <div class="replybar hide" id="replyBar"><div><b id="rWho"></b><span id="rTxt"></span></div><button class="ic" data-action="cancelReply">✕</button></div>
+      <footer class="composer">
+        <button class="ic" data-action="emoji">😊</button>
+        <button class="ic" data-action="attach" title="Send photo">📎</button><input type="file" id="imgIn" accept="image/*" class="hide">
+        <input id="msgIn" placeholder="Type a message" autocomplete="off">
+        <button class="ic" id="micBtn" data-action="mic" title="Voice message">🎤</button>
+        <button class="send hide" data-action="send">➤</button>
+        <div class="emojis hide" id="emojiBox"></div>
+      </footer>
+    </div>
+  </main>
+</section>
+
+<div id="menu" class="menu hide"></div>
+<div id="themeBox" class="themes hide"></div>
+<div id="modal" class="modal hide"><div class="sheet" id="sheet"></div></div>
+<div id="viewer" class="viewer hide"></div>
+<div id="call" class="call hide"><div class="av big" id="callAv"></div><h2 id="callName"></h2><p id="callState"></p><div class="wave"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="row"><button class="ic" id="muteBtn" data-action="mute">🎙</button><button class="end" data-action="endCall" title="End / decline">📞</button><button class="acc" id="accBtn" data-action="accept" title="Accept">📞</button></div></div>
+<audio id="remoteAudio" autoplay></audio>
+<div id="toast" class="toast hide"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
